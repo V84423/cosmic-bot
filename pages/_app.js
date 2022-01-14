@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { UALProvider } from "ual-reactjs-renderer";
+import { UALProvider, withUAL } from "ual-reactjs-renderer";
 import { Anchor } from "ual-anchor";
 import { Wax } from "@eosdacio/ual-wax";
 
@@ -18,15 +18,7 @@ const anchor = new Anchor([myChain], { appName: "cpu4" });
 const wax = new Wax([myChain], { appName: "cpu4" });
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <UALProvider
-      chains={[myChain]}
-      authenticators={[anchor, wax]}
-      appName={"cpu4"}
-    >
-      <Component {...pageProps} />
-    </UALProvider>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

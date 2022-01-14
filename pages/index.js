@@ -3,24 +3,19 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import logo from "../public/logo.svg";
 import bg from "../public/bg.svg";
-import { JsonRpc } from "eosjs";
-import { UALProvider, withUAL } from "ual-reactjs-renderer";
-import { Anchor } from "ual-anchor";
-import { Wax } from "@eosdacio/ual-wax";
+import * as waxjs from "@waxio/waxjs/dist";
 import loginButton from "../public/loginButton.png";
 
 // const rpc = new JsonRpc("https://wax.greymass.com", { fetch });
-const rpc = new JsonRpc("https://testnet.wax.eosdetroit.io", { fetch });
+const wax = new waxjs.WaxJS({
+  rpcEndpoint: "https://wax.greymass.com",
+  tryAutoLogin: true,
+});
 
-const MyUALConsumer = withUAL(Home);
-
-export default MyUALConsumer;
-
-function Home({ ual }) {
-  const openLoginModal = () => {
-    if (!ual.activeUser) {
-      ual.showModal();
-    }
+export default function Home() {
+  const openLoginModal = async () => {
+    const userAccount = await wax.login();
+    console.log(userAccount);
   };
 
   return (
