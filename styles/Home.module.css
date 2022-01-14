@@ -2,8 +2,9 @@
   height: 100vh;
   background: url("../public/bg.svg");
 }
-.loginButton {
-  position: absolute;
+.loginButton:active {
+  transform: scale(0.9);
+  transition-duration: 1s;
 }
 
 .main {
