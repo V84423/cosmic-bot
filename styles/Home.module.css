@@ -1,6 +1,6 @@
 .container {
   height: 100vh;
-  background: url("../public/bg.png");
+  background: url("../public/bg.svg");
 }
 .loginButton {
   position: absolute;
