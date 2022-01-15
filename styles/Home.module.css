@@ -1,15 +1,19 @@
 .container {
   height: 100vh;
-  background: url("../public/bg.png");
+  background: url("../public/bg.svg");
 }
 .loginButton:active {
   transform: scale(0.9);
   transition-duration: 1s;
 }
-
+.logo1 {
+  position: absolute !important;
+  width: 50%;
+}
 .gs {
   width: 55% !important;
-  height: 70%;
+  height: 30%;
+  margin-top: 50px;
 }
 
 .main {
