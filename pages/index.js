@@ -15,37 +15,44 @@ const wax = new waxjs.WaxJS({
 });
 
 export default function Home() {
-  const [account, setAccount] = useState(null);
+  const [account, setAccount] = useState("");
 
   const openLoginModal = async () => {
     const userAccount = await wax.login();
+    console.log("logged in user", userAccount);
     setAccount(userAccount);
   };
 
-  return (
-    <div>
-      {account ? (
-        <div className={styles.container}>
-          <Head>
-            <title>Cosmic Bots</title>
-            <meta name="description" content="Farm tokens with cosmic bots" />
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <main className={styles.main}>
-            <Image src={logo} alt="logo" className={styles.logo} />
-            <Image
-              src={loginButton}
-              alt="logo"
-              onClick={openLoginModal}
-              className={styles.loginButton}
-            />
-          </main>
-        </div>
-      ) : (
-        <div>
-          <CB />
-        </div>
-      )}
-    </div>
-  );
+  const renderLogin = () => {
+    return (
+      <div className={styles.container}>
+        <Head>
+          <title>Cosmic Bots</title>
+          <meta name="description" content="Farm tokens with cosmic bots" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <main className={styles.main}>
+          <Image src={logo} alt="logo" className={styles.logo} />
+          <button
+            src={loginButton}
+            alt="logo"
+            onClick={openLoginModal}
+            className={styles.Button}
+          >
+            LOGIN
+          </button>
+        </main>
+      </div>
+    );
+  };
+
+  const renderGame = () => {
+    return (
+      <div>
+        <CB account={account} />
+      </div>
+    );
+  };
+
+  return <div>{account ? renderLogin() : renderGame()}</div>;
 }
