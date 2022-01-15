@@ -6,7 +6,7 @@ import logo from "../public/logo.svg";
 import bg from "../public/bg.svg";
 import * as waxjs from "@waxio/waxjs/dist";
 import loginButton from "../public/loginButton.png";
-import CB from "./cb";
+import CB from "./app";
 
 // const rpc = new JsonRpc("https://wax.greymass.com", { fetch });
 const wax = new waxjs.WaxJS({

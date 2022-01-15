@@ -36,7 +36,11 @@
   margin-top: -50px !important;
   margin-left: 3rem !important;
 }
-
+.account {
+  color: white;
+  text-align: center;
+  margin: 3rem 0 0 5rem;
+}
 .main {
   min-height: 80vh;
   flex: 1;
