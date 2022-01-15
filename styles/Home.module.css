@@ -32,9 +32,9 @@
   flex-direction: row;
 }
 .gs {
-  width: 55% !important;
-  height: 30%;
-  margin-top: 50px;
+  min-width: 100% !important;
+  margin-top: -50px !important;
+  margin-left: 3rem !important;
 }
 
 .main {

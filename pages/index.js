@@ -16,13 +16,15 @@ const wax = new waxjs.WaxJS({
 
 export default function Home() {
   const [account, setAccount] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const openLoginModal = async () => {
     const userAccount = await wax.login();
     console.log("logged in user", userAccount);
+    setLoggedIn(true);
     setAccount(userAccount);
   };
-
+  console.log(loggedIn);
   const renderLogin = () => {
     return (
       <div className={styles.container}>
@@ -54,5 +56,5 @@ export default function Home() {
     );
   };
 
-  return <div>{account ? renderLogin() : renderGame()}</div>;
+  return <div>{loggedIn ? renderGame() : renderLogin()}</div>;
 }

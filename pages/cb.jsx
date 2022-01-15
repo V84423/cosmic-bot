@@ -19,7 +19,7 @@ export default function CB({ account }) {
           <Image src={logo} alt="logo" className={styles.logo1} />
           <h1>Account: {account} </h1>
         </section>
-        <Image src={gs} alt="game screen" className="mt-4" />
+        <Image src={gs} alt="game screen" className={styles.gs} />
         <section className={styles.buttonContainer}>
           <Link href="/" passHref alt="button">
             <button className={styles.Button}>HOME</button>
