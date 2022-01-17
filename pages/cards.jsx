@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.css";
 import gs from "../public/Game_Screen.svg";
 
 export default function cards({ account }) {
+  console.log("passed in user", account);
   return (
     <div>
       <Head>
@@ -17,7 +18,7 @@ export default function cards({ account }) {
       <main className={styles.container}>
         <section className={styles.section}>
           <Image src={logo} alt="logo" className={styles.logo1} />
-          <h1>Account: {account} </h1>
+          <h1>Account: {account.main.name} </h1>
         </section>
         <Image src={gs} alt="game screen" className={styles.gs} />
         <section className={styles.buttonContainer}>
