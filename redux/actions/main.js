@@ -9,3 +9,8 @@ export const setLoggedIn = (logged) => ({
   type: t.SET_LOGGEDIN,
   payload: logged,
 });
+
+export const getUser = (name) => ({
+  type: t.GET_USER,
+  payload: name,
+});

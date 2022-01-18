@@ -12,6 +12,8 @@ const main = (
       return { ...state, name: action.payload };
     case t.SET_LOGGEDIN:
       return { ...state, logged: action.payload };
+    case t.GET_USER:
+      return { ...state, name: state.name };
     default:
       return { ...state };
   }

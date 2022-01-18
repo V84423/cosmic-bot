@@ -5,9 +5,11 @@ import logo from "../public/logo1.svg";
 import button from "../public/button.svg";
 import styles from "../styles/Home.module.css";
 import gs from "../public/Game_Screen.svg";
+import { connect } from "react-redux";
 
-export default function cards({ account }) {
-  console.log("passed in user", account);
+const Cards = (props) => {
+  const { user } = props;
+  console.log("passed in user", user);
   return (
     <div>
       <Head>
@@ -18,7 +20,7 @@ export default function cards({ account }) {
       <main className={styles.container}>
         <section className={styles.section}>
           <Image src={logo} alt="logo" className={styles.logo1} />
-          <h1>Account: {account.main.name} </h1>
+          {/* <h1>Account: {user.main.name}  </h1> */}
         </section>
         <Image src={gs} alt="game screen" className={styles.gs} />
         <section className={styles.buttonContainer}>
@@ -38,4 +40,10 @@ export default function cards({ account }) {
       </main>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  user: state,
+});
+
+export default connect(mapStateToProps)(Cards);

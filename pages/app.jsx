@@ -5,8 +5,10 @@ import logo from "../public/logo1.svg";
 import { isMobile } from "react-device-detect";
 import styles from "../styles/Home.module.css";
 import gs from "../public/Game_Screen.svg";
+import { connect } from "react-redux";
 
-export default function CB({ account }) {
+const CB = (props) => {
+  const { user } = props;
   return (
     <div>
       <Head>
@@ -23,7 +25,7 @@ export default function CB({ account }) {
           <div>
             <section className={styles.section}>
               <Image src={logo} alt="logo" className={styles.logo1} />
-              <h1 className={styles.account}>Account: {account.main.name} </h1>
+              <h1 className={styles.account}>Account: {user.main.name} </h1>
             </section>
             <Image src={gs} alt="game screen" className={styles.gs} />
             <section className={styles.buttonContainer}>
@@ -45,4 +47,10 @@ export default function CB({ account }) {
       </main>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  user: state,
+});
+
+export default connect(mapStateToProps)(CB);
